@@ -10,7 +10,7 @@ export default class Newsitem extends Component {
     return (
   
         <div>
-          <div className="card" style = {{ width: '18rem' }}>
+          <div className="card" >
             <img src={imgurl} className="card-img-top" alt="..." />
             <div className="card-body">
               <h5 className="card-title">{tital}</h5>
