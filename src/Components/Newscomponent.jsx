@@ -4,8 +4,8 @@ import Loading from './Loading';
 
 export default class Newscomponent extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       articles: [],
       loading: true,
@@ -14,9 +14,11 @@ export default class Newscomponent extends Component {
   };
 
   async componentDidMount(){
-    let url = 'https://newsapi.org/v2/everything?q=tesla&from=2024-02-18&sortBy=publishedAt&apiKey=b738ae62d0cc45f6b205a5d35dcbb5ad';
+    let url = `https://newsapi.org/v2/top-headlines?country=us&category=${this.props.category}&apiKey=b738ae62d0cc45f6b205a5d35dcbb5ad`;
     let fetchdata = await fetch(url);
     let pasrdata = await fetchdata.json();
+
+    console.log(pasrdata);
 
     this.setState({
       articles : pasrdata.articles,
